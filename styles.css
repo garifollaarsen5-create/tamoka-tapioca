@@ -215,6 +215,8 @@ img{max-width:100%;display:block}
   transition:opacity .3s ease;
 }
 .menu-img.has-img .img-emoji{opacity:0}
+.menu-img.plain{background:transparent!important}
+.menu-img.plain img{mix-blend-mode:normal}
 .menu-img img{
   position:absolute;inset:0;
   width:100%;height:100%;
