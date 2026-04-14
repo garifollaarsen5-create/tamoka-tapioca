@@ -291,10 +291,9 @@ img{max-width:100%;display:block}
   .nav-links.open{display:flex}
   .burger{display:block}
   .hero-inner{grid-template-columns:1fr;gap:40px}
-  .hero-visual{height:320px;order:-1}
-  .cup{width:130px;height:170px}
-  .cup2{width:140px;height:185px}
-  .cup3{width:120px;height:155px}
+  .hero-visual{height:280px;order:-1}
+  .hero-logo{width:240px;height:240px}
+  .cup1,.cup2,.cup3{display:none}
   .about-grid{grid-template-columns:1fr;gap:40px}
   .hero-perks{grid-template-columns:1fr}
   .footer-inner{flex-direction:column;text-align:center}
