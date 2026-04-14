@@ -102,7 +102,7 @@ function renderMenu(){
   const grid = document.getElementById('menu-grid');
   grid.innerHTML = '';
 
-  Object.entries(MENU).forEach(([catKey, cat], catIdx)=>{
+  Object.entries(MENU).forEach(([, cat], catIdx)=>{
     // Category header
     const header = document.createElement('div');
     header.className = 'cat-header reveal';
@@ -133,7 +133,7 @@ function renderMenu(){
       card.style.transitionDelay = `${(catIdx * 3 + itemIdx) * 55}ms`;
 
       card.innerHTML = `
-        <div class="menu-img${catKey==='lemonade'?' plain':''}"${catKey==='lemonade'?'':` style="background:linear-gradient(135deg,${item.color},#fff)"`}>
+        <div class="menu-img" style="background:linear-gradient(135deg,${item.color},#fff)">
           <div class="temp-badges">${tempBadge}</div>
           <div class="img-emoji">${item.emoji}</div>
           ${item.img ? `<img src="${item.img}" alt="${item.name[LANG]}"
