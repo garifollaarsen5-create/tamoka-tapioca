@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tamoka Tapioca — Bubble Tea Aktobe</title>
+<meta name="description" content="Tamoka Tapioca — свежая тапиока, насыщенные вкусы, быстрое приготовление. Bubble Tea в Актобе." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container nav">
+    <a href="#top" class="logo">
+      <img src="logo.png" alt="Tamoka Tapioca" class="logo-img" />
+    </a>
+    <nav class="nav-links">
+      <a href="#menu" data-i18n="nav_menu">Меню</a>
+      <a href="#about" data-i18n="nav_about">О нас</a>
+      <a href="#locations" data-i18n="nav_locations">Адреса</a>
+      <a href="#contact" data-i18n="nav_contact">Контакты</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-switch">
+        <button data-lang="ru" class="active">RU</button>
+        <button data-lang="kz">KZ</button>
+      </div>
+      <button class="cart-btn" onclick="toggleCart()">
+        🛒 <span id="cart-count">0</span>
+      </button>
+      <button class="burger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="top" class="hero">
+  <div class="bubbles">
+    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <span class="badge" data-i18n="hero_badge">🐯 Bubble Tea · Актобе</span>
+      <h1 data-i18n="hero_title">Твой маленький отдых <span class="accent">в стакане</span></h1>
+      <p data-i18n="hero_sub">Натуральные вкусы • Быстро • Стильно. Работаем каждый день 💖</p>
+      <div class="hero-cta">
+        <a href="#menu" class="btn btn-primary" data-i18n="hero_order">Заказать</a>
+        <a href="#about" class="btn btn-ghost" data-i18n="hero_more">Узнать больше</a>
+      </div>
+      <div class="hero-perks">
+        <div>✔ <span data-i18n="perk1">всегда свежая тапиока</span></div>
+        <div>✔ <span data-i18n="perk2">насыщенные вкусы</span></div>
+        <div>✔ <span data-i18n="perk3">быстрое приготовление</span></div>
+        <div>✔ <span data-i18n="perk4">эстетика, которую хочется снимать 😍</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="logo.png" alt="Tamoka Tapioca" class="hero-logo" />
+      <div class="cup cup1"></div>
+      <div class="cup cup2"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="container about-grid">
+    <div>
+      <h2 data-i18n="about_title">Почему все приходят к нам снова и снова</h2>
+      <p data-i18n="about_p1">Мы готовим каждый напиток вручную, свежо и с любовью. Десятки авторских вкусов — от классической тапиоки до летних лимонадов и нежных тиа-кримов.</p>
+      <p data-i18n="about_p2">Это не просто напиток — это твой маленький отдых в течение дня 💖</p>
+    </div>
+    <div class="about-stats">
+      <div><strong>30+</strong><span data-i18n="stat1">вкусов</span></div>
+      <div><strong>3</strong><span data-i18n="stat2">локации в Актобе</span></div>
+      <div><strong>100%</strong><span data-i18n="stat3">натуральные ингредиенты</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="menu">
+  <div class="container">
+    <div class="section-head">
+      <h2 data-i18n="menu_title">Меню</h2>
+      <p data-i18n="menu_sub">Выбирай любимый вкус — мы приготовим его за пару минут</p>
+    </div>
+    <div class="menu-tabs" id="menu-tabs"></div>
+    <div class="menu-grid" id="menu-grid"></div>
+  </div>
+</section>
+
+<!-- LOCATIONS -->
+<section id="locations" class="locations">
+  <div class="container">
+    <div class="section-head">
+      <h2 data-i18n="loc_title">Наши адреса</h2>
+      <p data-i18n="loc_sub">3 точки в Актобе — мы всегда рядом</p>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-card">
+        <div class="loc-badge" data-i18n="loc_main">Головной</div>
+        <h3>Абылхайыр хана, 56В</h3>
+        <p data-i18n="loc1_desc">Центр города, уютная атмосфера</p>
+        <a class="btn btn-wa" href="https://wa.me/77053460046" target="_blank">WhatsApp · 8 705 346 00 46</a>
+      </div>
+      <div class="loc-card">
+        <div class="loc-badge">Нур Сити</div>
+        <h3>2 мкр, 21В</h3>
+        <p data-i18n="loc2_desc">Рядом с жилым массивом</p>
+        <a class="btn btn-wa" href="https://wa.me/77717699042" target="_blank">WhatsApp · 8 771 769 90 42</a>
+      </div>
+      <div class="loc-card">
+        <div class="loc-badge">Капитан Бриг</div>
+        <h3>Абылхайыр хана, 97Б</h3>
+        <p data-i18n="loc3_desc">Новая точка, заходи попробовать</p>
+        <a class="btn btn-wa" href="https://wa.me/77761913101" target="_blank">WhatsApp · 8 776 191 31 01</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="container contact-inner">
+    <h2 data-i18n="contact_title">Остались вопросы?</h2>
+    <p data-i18n="contact_sub">Пиши нам в Instagram или WhatsApp — ответим быстро 💬</p>
+    <div class="contact-links">
+      <a href="https://www.instagram.com/tamoka_tapioca" target="_blank" class="btn btn-primary">📸 Instagram</a>
+      <a href="https://wa.me/77053460046" target="_blank" class="btn btn-wa">💬 WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <strong>TAMOKA TAPIOCA</strong>
+      <p data-i18n="footer_desc">Bubble Tea в Актобе · Работаем каждый день</p>
+    </div>
+    <div class="footer-links">
+      <a href="#menu" data-i18n="nav_menu">Меню</a>
+      <a href="#locations" data-i18n="nav_locations">Адреса</a>
+      <a href="https://www.instagram.com/tamoka_tapioca" target="_blank">Instagram</a>
+    </div>
+    <small>© 2026 Tamoka Tapioca</small>
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+<aside class="cart-drawer" id="cart-drawer">
+  <div class="cart-head">
+    <h3 data-i18n="cart_title">Корзина</h3>
+    <button onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-foot">
+    <div class="cart-total">
+      <span data-i18n="cart_total">Итого</span>
+      <strong id="cart-total">0 ₸</strong>
+    </div>
+    <label class="cart-label" data-i18n="cart_choose_loc">Выбери точку для заказа:</label>
+    <select id="cart-location">
+      <option value="77053460046">Абылхайыр хана, 56В (Головной)</option>
+      <option value="77717699042">2 мкр, 21В (Нур Сити)</option>
+      <option value="77761913101">Абылхайыр хана, 97Б (Капитан Бриг)</option>
+    </select>
+    <button class="btn btn-wa btn-block" onclick="sendToWhatsApp()" data-i18n="cart_send">Оформить в WhatsApp</button>
+  </div>
+</aside>
+
+<script src="menu.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
