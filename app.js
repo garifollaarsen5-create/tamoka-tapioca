@@ -74,7 +74,6 @@ function setLang(lang){
   document.querySelectorAll('[data-i18n]').forEach(el=>{
     const key = el.dataset.i18n; if(I18N[lang][key]) el.textContent = I18N[lang][key];
   });
-  // hero title with HTML
   const h1 = document.querySelector('.hero h1');
   if(h1) h1.innerHTML = I18N[lang].hero_title_html;
   renderMenu();
@@ -83,53 +82,100 @@ function setLang(lang){
 
 document.querySelectorAll('.lang-switch button').forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
 
+// ---------- BURGER MENU ----------
+const burger = document.querySelector('.burger');
+const navLinks = document.querySelector('.nav-links');
+burger.addEventListener('click', ()=>{
+  navLinks.classList.toggle('open');
+  burger.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+});
+// close nav when a link is tapped
+navLinks.querySelectorAll('a').forEach(a=>{
+  a.addEventListener('click', ()=>{
+    navLinks.classList.remove('open');
+    burger.textContent = '☰';
+  });
+});
+
 // ---------- MENU RENDER ----------
 function renderMenu(){
-  const tabs = document.getElementById('menu-tabs');
-  if(tabs) tabs.innerHTML = '';
   const grid = document.getElementById('menu-grid');
   grid.innerHTML = '';
-  Object.entries(MENU).forEach(([key, cat])=>{
+
+  Object.entries(MENU).forEach(([, cat], catIdx)=>{
+    // Category header
     const header = document.createElement('div');
-    header.className = 'cat-header';
+    header.className = 'cat-header reveal';
     header.innerHTML = `<h3>${cat.title[LANG]}</h3>`;
     grid.appendChild(header);
-    cat.items.forEach(item=>{
+
+    cat.items.forEach((item, itemIdx)=>{
       const sizes = Object.keys(item.sizes);
       const defaultSize = sizes[0];
-      const card = document.createElement('div');
-      card.className = 'menu-card';
+
       const tempBadge = item.temp==='hot'
         ? `<span class="temp-badge hot" title="Горячий">🔥</span>`
         : item.temp==='both'
-          ? `<span class="temp-badge hot" title="Горячий">🔥</span><span class="temp-badge cold" title="Холодный">❄️</span>`
+          ? `<span class="temp-badge hot">🔥</span><span class="temp-badge cold">❄️</span>`
           : `<span class="temp-badge cold" title="Холодный">❄️</span>`;
+
+      const card = document.createElement('div');
+      card.className = 'menu-card reveal';
+      // stagger delay per card
+      card.style.transitionDelay = `${(catIdx * 3 + itemIdx) * 55}ms`;
+
       card.innerHTML = `
         <div class="menu-img" style="background:linear-gradient(135deg,${item.color},#fff)">
           <div class="temp-badges">${tempBadge}</div>
-          ${item.img ? `<img src="${item.img}" alt="${item.name[LANG]}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><span class="emoji-fallback" style="display:none">${item.emoji}</span>` : `<span class="emoji-fallback">${item.emoji}</span>`}
+          <div class="img-emoji">${item.emoji}</div>
+          ${item.img ? `<img src="${item.img}" alt="${item.name[LANG]}"
+            onload="this.classList.add('loaded')"
+            onerror="this.remove()"/>` : ''}
         </div>
         <h3>${item.name[LANG]}</h3>
         <p class="desc">${item.desc[LANG]}</p>
-        ${sizes.length>1 ? `<div class="size-tabs">${sizes.map((s,i)=>`<button class="${i===0?'active':''}" data-size="${s}">${s}${isNaN(s)?'':' мл'}</button>`).join('')}</div>`:''}
+        ${sizes.length>1
+          ? `<div class="size-tabs">${sizes.map((s,i)=>`<button class="${i===0?'active':''}" data-size="${s}">${s}${isNaN(s)?'':' мл'}</button>`).join('')}</div>`
+          : ''}
         <div class="row">
-          <div class="price">${item.sizes[defaultSize]} ₸ ${sizes.length===1 && isNaN(defaultSize)?`<small>/${defaultSize}</small>`:`<small>${defaultSize}${isNaN(defaultSize)?'':' мл'}</small>`}</div>
+          <div class="price">${item.sizes[defaultSize]} ₸ ${sizes.length===1 && isNaN(defaultSize)
+            ? `<small>/${defaultSize}</small>`
+            : `<small>${defaultSize}${isNaN(defaultSize)?'':' мл'}</small>`}</div>
           <button class="add-btn">+ ${I18N[LANG].add}</button>
         </div>
       `;
+
       let selectedSize = defaultSize;
       card.querySelectorAll('.size-tabs button').forEach(b=>{
         b.onclick = ()=>{
           card.querySelectorAll('.size-tabs button').forEach(x=>x.classList.remove('active'));
           b.classList.add('active');
           selectedSize = b.dataset.size;
-          card.querySelector('.price').innerHTML = `${item.sizes[selectedSize]} ₸ <small>${selectedSize}${isNaN(selectedSize)?'':' мл'}</small>`;
+          card.querySelector('.price').innerHTML =
+            `${item.sizes[selectedSize]} ₸ <small>${selectedSize}${isNaN(selectedSize)?'':' мл'}</small>`;
         };
       });
       card.querySelector('.add-btn').onclick = ()=> addToCart(item, selectedSize);
       grid.appendChild(card);
     });
   });
+
+  // trigger scroll reveal after render
+  setTimeout(setupReveal, 50);
+}
+
+// ---------- SCROLL REVEAL ----------
+function setupReveal(){
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.08, rootMargin:'0px 0px -30px 0px'});
+
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el=>observer.observe(el));
 }
 
 // ---------- CART ----------
@@ -148,10 +194,11 @@ function addToCart(item, size){
     });
   }
   saveCart(); renderCart();
-  // flash
+
+  // bounce animation on cart button
   const badge = document.getElementById('cart-count');
-  badge.style.transform = 'scale(1.4)';
-  setTimeout(()=>badge.style.transform='',200);
+  badge.style.transform = 'scale(1.5)';
+  setTimeout(()=>badge.style.transform='scale(1)',180);
 }
 
 function changeQty(key, delta){
@@ -190,6 +237,9 @@ function renderCart(){
 function toggleCart(){
   document.getElementById('cart-drawer').classList.toggle('open');
   document.getElementById('cart-overlay').classList.toggle('open');
+  // close burger menu if open
+  navLinks.classList.remove('open');
+  burger.textContent = '☰';
 }
 
 function sendToWhatsApp(){
@@ -208,10 +258,19 @@ function sendToWhatsApp(){
   });
   const total = CART.reduce((s,i)=>s+i.qty*i.price,0);
   msg += `\n💰 ${I18N[LANG].wa_total}: ${total.toLocaleString('ru-RU')} ₸`;
-  const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
-  window.open(url, '_blank');
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+// ---------- STATIC SECTION REVEALS ----------
+function initStaticReveal(){
+  // add reveal class to static sections
+  document.querySelectorAll('.about-grid, .about-stats>div, .loc-card, .section-head, .contact-inner').forEach(el=>{
+    el.classList.add('reveal');
+  });
+  setupReveal();
 }
 
 // ---------- INIT ----------
 setLang(LANG);
 renderCart();
+initStaticReveal();
