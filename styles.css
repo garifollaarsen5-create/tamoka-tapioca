@@ -77,7 +77,7 @@ img{max-width:100%;display:block}
 /* ── HERO ── */
 .hero{
   position:relative;
-  background:linear-gradient(135deg,#ffe0ef 0%,#ffd1e8 50%,#ffc2de 100%);
+  background:linear-gradient(135deg,#ffb6d5 0%,#ff8fc0 50%,#ff6ab0 100%);
   padding:80px 0 100px;overflow:hidden;
 }
 .hero-inner{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}

@@ -12,7 +12,7 @@ const MENU = {
     title: {ru:'Classical', kz:'Classical'},
     items: [
       {id:'jasmine', img:'img/jasmine.jpg', name:{ru:'Jasmine Tapioca',kz:'Jasmine Tapioca'}, desc:{ru:'Тапиока, жасминовый чай, молоко',kz:'Тапиока, жасмин шайы, сүт'}, sizes:{500:1650,700:1800}, temp:'cold', emoji:'🍵', color:'#fff5cc'},
-      {id:'thai', img:'img/thai.jpg', name:{ru:'Thai Tapioca',kz:'Thai Tapioca'}, desc:{ru:'Тайский изумрудный чай, тапиока, молоко',kz:'Тай зүмірет шайы, тапиока, сүт'}, sizes:{500:1650,700:1800}, temp:'hot', emoji:'🧋', color:'#c4ecb4'},
+      {id:'thai', img:'img/thai.jpg', name:{ru:'Thai Tapioca',kz:'Thai Tapioca'}, desc:{ru:'Тайский изумрудный чай, тапиока, молоко',kz:'Тай зүмірет шайы, тапиока, сүт'}, sizes:{500:1650,700:1800}, temp:'both', emoji:'🧋', color:'#c4ecb4'},
     ]
   },
   lemonade: {
@@ -31,7 +31,7 @@ const MENU = {
   special: {
     title: {ru:'Special', kz:'Special'},
     items: [
-      {id:'siren', img:'img/siren.jpg', name:{ru:'Сиреневое молоко',kz:'Сиреневое молоко'}, desc:{ru:'Клубника, молоко, сырная шапка, голубой курасао',kz:'Құлпынай, сүт, ірімшік қақпағы, көк курасао'}, sizes:{500:1800,700:2000}, temp:'hot', emoji:'💜', color:'#d4b8ff'},
+      {id:'siren', img:'img/siren.jpg', name:{ru:'Сиреневое молоко',kz:'Сиреневое молоко'}, desc:{ru:'Клубника, молоко, сырная шапка, голубой курасао',kz:'Құлпынай, сүт, ірімшік қақпағы, көк курасао'}, sizes:{500:1800,700:2000}, temp:'both', emoji:'💜', color:'#d4b8ff'},
       {id:'cacao_banana', img:'img/cacao_banana.jpg', name:{ru:'Cacao Banana Tapioca',kz:'Cacao Banana Tapioca'}, desc:{ru:'Какао, банан, тапиока, шоколад',kz:'Какао, банан, тапиока, шоколад'}, sizes:{500:1700,700:1900}, temp:'both', emoji:'🍫', color:'#b89070'},
       {id:'kaha_orange', img:'img/kaha_orange.jpg', name:{ru:'Kaha Orange Ice Tea',kz:'Kaha Orange Ice Tea'}, desc:{ru:'Апельсин, маракуйя, пюре маракуйя, жасмин',kz:'Апельсин, маракуйя, жасмин'}, sizes:{500:1700,700:2000}, temp:'cold', emoji:'🍊', color:'#ffb070'},
       {id:'bubble_coffee', img:'img/bubble_coffee.jpg', name:{ru:'Bubble Coffee',kz:'Bubble Coffee'}, desc:{ru:'Кофе, сырная шапка, тапиока, шоколад',kz:'Кофе, ірімшік көбігі, тапиока, шоколад'}, sizes:{500:1650}, temp:'both', emoji:'☕', color:'#b89070'},
