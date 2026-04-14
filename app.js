@@ -137,7 +137,7 @@ function renderMenu(){
           <div class="temp-badges">${tempBadge}</div>
           <div class="img-emoji">${item.emoji}</div>
           ${item.img ? `<img src="${item.img}" alt="${item.name[LANG]}"
-            onload="this.classList.add('loaded')"
+            onload="this.classList.add('loaded');this.parentElement.classList.add('has-img')"
             onerror="this.remove()"/>` : ''}
         </div>
         <h3>${item.name[LANG]}</h3>
