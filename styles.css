@@ -298,3 +298,5 @@ img{max-width:100%;display:block}
   .hero-perks{grid-template-columns:1fr}
   .footer-inner{flex-direction:column;text-align:center}
 }
+
+.loc-hours{margin:8px 0 14px;color:var(--dark);font-weight:600;font-size:15px}
