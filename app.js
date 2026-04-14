@@ -84,54 +84,51 @@ function setLang(lang){
 document.querySelectorAll('.lang-switch button').forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
 
 // ---------- MENU RENDER ----------
-let activeTab = 'tea_cream';
-
 function renderMenu(){
   const tabs = document.getElementById('menu-tabs');
-  tabs.innerHTML = '';
-  Object.entries(MENU).forEach(([key, cat])=>{
-    const btn = document.createElement('button');
-    btn.textContent = cat.title[LANG];
-    if(key===activeTab) btn.classList.add('active');
-    btn.onclick = ()=>{ activeTab = key; renderMenu(); };
-    tabs.appendChild(btn);
-  });
+  if(tabs) tabs.innerHTML = '';
   const grid = document.getElementById('menu-grid');
   grid.innerHTML = '';
-  MENU[activeTab].items.forEach(item=>{
-    const sizes = Object.keys(item.sizes);
-    const defaultSize = sizes[0];
-    const card = document.createElement('div');
-    card.className = 'menu-card';
-    const tempBadge = item.temp==='hot'
-      ? `<span class="temp-badge hot" title="Горячий">🔥</span>`
-      : item.temp==='both'
-        ? `<span class="temp-badge hot" title="Горячий">🔥</span><span class="temp-badge cold" title="Холодный">❄️</span>`
-        : `<span class="temp-badge cold" title="Холодный">❄️</span>`;
-    card.innerHTML = `
-      <div class="menu-img" style="background:linear-gradient(135deg,${item.color},#fff)">
-        <div class="temp-badges">${tempBadge}</div>
-        ${item.emoji}
-      </div>
-      <h3>${item.name[LANG]}</h3>
-      <p class="desc">${item.desc[LANG]}</p>
-      ${sizes.length>1 ? `<div class="size-tabs">${sizes.map((s,i)=>`<button class="${i===0?'active':''}" data-size="${s}">${s}${isNaN(s)?'':' мл'}</button>`).join('')}</div>`:''}
-      <div class="row">
-        <div class="price">${item.sizes[defaultSize]} ₸ ${sizes.length===1 && isNaN(defaultSize)?`<small>/${defaultSize}</small>`:`<small>${defaultSize}${isNaN(defaultSize)?'':' мл'}</small>`}</div>
-        <button class="add-btn">+ ${I18N[LANG].add}</button>
-      </div>
-    `;
-    let selectedSize = defaultSize;
-    card.querySelectorAll('.size-tabs button').forEach(b=>{
-      b.onclick = ()=>{
-        card.querySelectorAll('.size-tabs button').forEach(x=>x.classList.remove('active'));
-        b.classList.add('active');
-        selectedSize = b.dataset.size;
-        card.querySelector('.price').innerHTML = `${item.sizes[selectedSize]} ₸ <small>${selectedSize}${isNaN(selectedSize)?'':' мл'}</small>`;
-      };
+  Object.entries(MENU).forEach(([key, cat])=>{
+    const header = document.createElement('div');
+    header.className = 'cat-header';
+    header.innerHTML = `<h3>${cat.title[LANG]}</h3>`;
+    grid.appendChild(header);
+    cat.items.forEach(item=>{
+      const sizes = Object.keys(item.sizes);
+      const defaultSize = sizes[0];
+      const card = document.createElement('div');
+      card.className = 'menu-card';
+      const tempBadge = item.temp==='hot'
+        ? `<span class="temp-badge hot" title="Горячий">🔥</span>`
+        : item.temp==='both'
+          ? `<span class="temp-badge hot" title="Горячий">🔥</span><span class="temp-badge cold" title="Холодный">❄️</span>`
+          : `<span class="temp-badge cold" title="Холодный">❄️</span>`;
+      card.innerHTML = `
+        <div class="menu-img" style="background:linear-gradient(135deg,${item.color},#fff)">
+          <div class="temp-badges">${tempBadge}</div>
+          ${item.img ? `<img src="${item.img}" alt="${item.name[LANG]}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><span class="emoji-fallback" style="display:none">${item.emoji}</span>` : `<span class="emoji-fallback">${item.emoji}</span>`}
+        </div>
+        <h3>${item.name[LANG]}</h3>
+        <p class="desc">${item.desc[LANG]}</p>
+        ${sizes.length>1 ? `<div class="size-tabs">${sizes.map((s,i)=>`<button class="${i===0?'active':''}" data-size="${s}">${s}${isNaN(s)?'':' мл'}</button>`).join('')}</div>`:''}
+        <div class="row">
+          <div class="price">${item.sizes[defaultSize]} ₸ ${sizes.length===1 && isNaN(defaultSize)?`<small>/${defaultSize}</small>`:`<small>${defaultSize}${isNaN(defaultSize)?'':' мл'}</small>`}</div>
+          <button class="add-btn">+ ${I18N[LANG].add}</button>
+        </div>
+      `;
+      let selectedSize = defaultSize;
+      card.querySelectorAll('.size-tabs button').forEach(b=>{
+        b.onclick = ()=>{
+          card.querySelectorAll('.size-tabs button').forEach(x=>x.classList.remove('active'));
+          b.classList.add('active');
+          selectedSize = b.dataset.size;
+          card.querySelector('.price').innerHTML = `${item.sizes[selectedSize]} ₸ <small>${selectedSize}${isNaN(selectedSize)?'':' мл'}</small>`;
+        };
+      });
+      card.querySelector('.add-btn').onclick = ()=> addToCart(item, selectedSize);
+      grid.appendChild(card);
     });
-    card.querySelector('.add-btn').onclick = ()=> addToCart(item, selectedSize);
-    grid.appendChild(card);
   });
 }
 
