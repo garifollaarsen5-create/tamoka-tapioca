@@ -17,6 +17,7 @@ const MENU = {
   },
   lemonade: {
     title: {ru:'Lemonade · 1500 ₸', kz:'Lemonade · 1500 ₸'},
+    banner: 'img/lemonade_banner.jpg',
     items: [
       {id:'mojito', img:'img/mojito.jpg', name:{ru:'Mojito Classic',kz:'Mojito Classic'}, desc:{ru:'Классический освежающий мохито',kz:'Классикалық сергітетін мохито'}, sizes:{500:1500}, temp:'cold', emoji:'🍃', color:'#c4ecb4'},
       {id:'marakuya', img:'img/marakuya.jpg', name:{ru:'Маракуйя',kz:'Маракуйя'}, desc:{ru:'Яркий лимонад с маракуйей',kz:'Маракуйямен жасалған лимонад'}, sizes:{500:1500}, temp:'cold', emoji:'🟡', color:'#ffe08a'},

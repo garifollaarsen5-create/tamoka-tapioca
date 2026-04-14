@@ -109,6 +109,14 @@ function renderMenu(){
     header.innerHTML = `<h3>${cat.title[LANG]}</h3>`;
     grid.appendChild(header);
 
+    // Category banner image (optional)
+    if(cat.banner){
+      const bannerEl = document.createElement('div');
+      bannerEl.className = 'cat-banner reveal';
+      bannerEl.innerHTML = `<img src="${cat.banner}" alt="${cat.title[LANG]}" onerror="this.parentElement.style.display='none'"/>`;
+      grid.appendChild(bannerEl);
+    }
+
     cat.items.forEach((item, itemIdx)=>{
       const sizes = Object.keys(item.sizes);
       const defaultSize = sizes[0];
