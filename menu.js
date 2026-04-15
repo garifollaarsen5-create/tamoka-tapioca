@@ -22,8 +22,8 @@ const MENU = {
       {id:'kivi_mar', img:'img/kivi_mar.png', name:{ru:'Киви Маракуйя',kz:'Киви Маракуйя'}, desc:{ru:'Киви и маракуйя',kz:'Киви мен маракуйя'}, sizes:{500:1500}, temp:'cold', emoji:'🥝', color:'#c4ecb4'},
       {id:'mango_mar', img:'img/mango_mar.png', name:{ru:'Манго Маракуйя',kz:'Манго Маракуйя'}, desc:{ru:'Манго и маракуйя',kz:'Манго мен маракуйя'}, sizes:{500:1500}, temp:'cold', emoji:'🥭', color:'#ffd28a'},
       {id:'cherry_moj', img:'img/cherry_moj.png', name:{ru:'Cherry Мохито',kz:'Cherry Мохито'}, desc:{ru:'Вишнёвый мохито',kz:'Шие мохито'}, sizes:{500:1500}, temp:'cold', emoji:'🍒', color:'#ff7a7a'},
-      {id:'ananas_moj', img:'img/malina_moj.png', name:{ru:'Ананас Мохито',kz:'Ананас Мохито'}, desc:{ru:'Ананасовый мохито',kz:'Ананас мохито'}, sizes:{500:1500}, temp:'cold', emoji:'🍍', color:'#ffe08a'},
-      {id:'malina_moj', img:'img/ananas_moj.png', name:{ru:'Малина Мохито',kz:'Малина Мохито'}, desc:{ru:'Малиновый мохито',kz:'Таңқурай мохито'}, sizes:{500:1500}, temp:'cold', emoji:'🫐', color:'#ff9fb0'},
+      {id:'ananas_moj', img:'img/ananas_moj.png', name:{ru:'Ананас Мохито',kz:'Ананас Мохито'}, desc:{ru:'Ананасовый мохито',kz:'Ананас мохито'}, sizes:{500:1500}, temp:'cold', emoji:'🍍', color:'#ffe08a'},
+      {id:'malina_moj', img:'img/malina_moj.png', name:{ru:'Малина Мохито',kz:'Малина Мохито'}, desc:{ru:'Малиновый мохито',kz:'Таңқурай мохито'}, sizes:{500:1500}, temp:'cold', emoji:'🫐', color:'#ff9fb0'},
     ]
   },
   special: {
