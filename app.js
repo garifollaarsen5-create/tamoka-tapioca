@@ -197,7 +197,7 @@ function addToCart(item, size){
       key:id, id:item.id,
       name_ru:item.name.ru, name_kz:item.name.kz,
       size, price:item.sizes[size],
-      emoji:item.emoji, qty:1
+      emoji:item.emoji, img:item.img, qty:1
     });
   }
   saveCart(); renderCart();
@@ -224,7 +224,7 @@ function renderCart(){
   } else {
     wrap.innerHTML = CART.map(c=>`
       <div class="cart-item">
-        <div class="cart-item-emoji">${c.emoji}</div>
+        <div class="cart-item-emoji">${c.img?`<img src="${c.img}" alt="">`:c.emoji}</div>
         <div class="cart-item-info">
           <h4>${LANG==='ru'?c.name_ru:c.name_kz}</h4>
           <small>${c.size}${isNaN(c.size)?'':' мл'} · ${c.price} ₸</small>
