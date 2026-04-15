@@ -22,8 +22,8 @@ const MENU = {
       {id:'kivi_mar', img:'img/kivi_mar.png', name:{ru:'Киви Маракуйя',kz:'Киви Маракуйя'}, desc:{ru:'Киви и маракуйя',kz:'Киви мен маракуйя'}, sizes:{500:1500}, temp:'cold', emoji:'🥝', color:'#c4ecb4'},
       {id:'mango_mar', img:'img/mango_mar.png', name:{ru:'Манго Маракуйя',kz:'Манго Маракуйя'}, desc:{ru:'Манго и маракуйя',kz:'Манго мен маракуйя'}, sizes:{500:1500}, temp:'cold', emoji:'🥭', color:'#ffd28a'},
       {id:'cherry_moj', img:'img/cherry_moj.png', name:{ru:'Cherry Мохито',kz:'Cherry Мохито'}, desc:{ru:'Вишнёвый мохито',kz:'Шие мохито'}, sizes:{500:1500}, temp:'cold', emoji:'🍒', color:'#ff7a7a'},
-      {id:'ananas_moj', img:'img/ananas_moj.png', name:{ru:'Ананас Мохито',kz:'Ананас Мохито'}, desc:{ru:'Ананасовый мохито',kz:'Ананас мохито'}, sizes:{500:1500}, temp:'cold', emoji:'🍍', color:'#ffe08a'},
-      {id:'malina_moj', img:'img/malina_moj.png', name:{ru:'Малина Мохито',kz:'Малина Мохито'}, desc:{ru:'Малиновый мохито',kz:'Таңқурай мохито'}, sizes:{500:1500}, temp:'cold', emoji:'🫐', color:'#ff9fb0'},
+      {id:'ananas_moj', img:'img/malina_moj.png', name:{ru:'Ананас Мохито',kz:'Ананас Мохито'}, desc:{ru:'Ананасовый мохито',kz:'Ананас мохито'}, sizes:{500:1500}, temp:'cold', emoji:'🍍', color:'#ffe08a'},
+      {id:'malina_moj', img:'img/ananas_moj.png', name:{ru:'Малина Мохито',kz:'Малина Мохито'}, desc:{ru:'Малиновый мохито',kz:'Таңқурай мохито'}, sizes:{500:1500}, temp:'cold', emoji:'🫐', color:'#ff9fb0'},
     ]
   },
   special: {
@@ -31,7 +31,6 @@ const MENU = {
     items: [
       {id:'siren', img:'img/siren.png', name:{ru:'Сиреневое молоко',kz:'Сиреневое молоко'}, desc:{ru:'Клубника, молоко, сырная шапка, голубой курасао',kz:'Құлпынай, сүт, ірімшік қақпағы, көк курасао'}, sizes:{500:1800,700:2000}, temp:'both', emoji:'💜', color:'#d4b8ff'},
       {id:'cacao_banana', img:'img/cacao_banana.jpg', name:{ru:'Cacao Banana Tapioca',kz:'Cacao Banana Tapioca'}, desc:{ru:'Какао, банан, тапиока, шоколад',kz:'Какао, банан, тапиока, шоколад'}, sizes:{500:1700,700:1900}, temp:'both', emoji:'🍫', color:'#b89070'},
-      {id:'kaha_orange', img:'img/kaha_orange.png', name:{ru:'Kaha Orange Ice Tea',kz:'Kaha Orange Ice Tea'}, desc:{ru:'Апельсин, маракуйя, пюре маракуйя, жасмин',kz:'Апельсин, маракуйя, жасмин'}, sizes:{500:1700,700:2000}, temp:'cold', emoji:'🍊', color:'#ffb070'},
       {id:'bubble_coffee', img:'img/bubble_coffee.jpg', name:{ru:'Bubble Coffee',kz:'Bubble Coffee'}, desc:{ru:'Кофе, сырная шапка, тапиока, шоколад',kz:'Кофе, ірімшік көбігі, тапиока, шоколад'}, sizes:{500:1650}, temp:'both', emoji:'☕', color:'#b89070'},
       {id:'milky_matcha', img:'img/milky_matcha.jpg', name:{ru:'Milky & Matcha',kz:'Milky & Matcha'}, desc:{ru:'Зелёный матча, молоко, классическое желе, тапиока',kz:'Жасыл матча, сүт, классикалық желе, тапиока'}, sizes:{500:1650,700:1800}, temp:'cold', emoji:'🍵', color:'#c4ecb4'},
       {id:'snickers', img:'img/snickers.jpg', name:{ru:'Snickers',kz:'Snickers'}, desc:{ru:'Карамель, шоколад, лесные орехи, молоко, тапиока',kz:'Карамель, шоколад, фундук, сүт, тапиока'}, sizes:{500:1850,700:2050}, temp:'cold', emoji:'🍫', color:'#e0b890'},
@@ -43,6 +42,7 @@ const MENU = {
   fruits: {
     title: {ru:'Tea & Fruits', kz:'Tea & Fruits'},
     items: [
+      {id:'kaha_orange', img:'img/kaha_orange.png', name:{ru:'Kaha Orange Ice Tea',kz:'Kaha Orange Ice Tea'}, desc:{ru:'Апельсин, маракуйя, пюре маракуйя, жасмин',kz:'Апельсин, маракуйя, жасмин'}, sizes:{500:1700,700:2000}, temp:'cold', emoji:'🍊', color:'#ffb070'},
       {id:'blue_lagoon', img:'img/blue_lagoon.jpg', name:{ru:'Blue Lagoon',kz:'Blue Lagoon'}, desc:{ru:'Ананас, персик, чай ананас, кокосовое желе',kz:'Ананас, шабдалы, ананас шайы, кокос желесі'}, sizes:{500:1550,700:1850}, temp:'cold', emoji:'💙', color:'#9fd4ff'},
       {id:'boracay', img:'img/boracay.jpg', name:{ru:'Boracay',kz:'Boracay'}, desc:{ru:'Ананас, персик, чай ананас, кокосовое желе',kz:'Ананас, шабдалы, ананас шайы, кокос желесі'}, sizes:{500:1700,700:1950}, temp:'cold', emoji:'🌴', color:'#ffd28a'},
       {id:'lime_extra', img:'img/lime_extra.jpg', name:{ru:'Lime Extra',kz:'Lime Extra'}, desc:{ru:'Лайм, лимон, листья мяты, жасмин, кокосовое желе',kz:'Лайм, лимон, жалбыз, жасмин, кокос желесі'}, sizes:{500:1550,700:1700}, temp:'cold', emoji:'🍋', color:'#c4ecb4'},
