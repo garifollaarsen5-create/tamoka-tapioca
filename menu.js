@@ -16,14 +16,14 @@ const MENU = {
   lemonade: {
     title: {ru:'Lemonade', kz:'Lemonade'},
     items: [
-      {id:'mojito', img:'img/mojito.png', name:{ru:'Mojito Classic',kz:'Mojito Classic'}, desc:{ru:'Классический освежающий мохито',kz:'Классикалық сергітетін мохито'}, sizes:{700:1800}, temp:'cold', emoji:'🍃', color:'#c4ecb4'},
-      {id:'marakuya', img:'img/marakuya.png', name:{ru:'Маракуйя',kz:'Маракуйя'}, desc:{ru:'Яркий лимонад с маракуйей',kz:'Маракуйямен жасалған лимонад'}, sizes:{700:1800}, temp:'cold', emoji:'🟡', color:'#ffe08a'},
-      {id:'granat', img:'img/granat.png', name:{ru:'Гранатовый удар',kz:'Гранатовый удар'}, desc:{ru:'Насыщенный гранатовый вкус',kz:'Анар дәмі бар қанық лимонад'}, sizes:{700:1800}, temp:'cold', emoji:'🔴', color:'#ff9fb0'},
-      {id:'kivi_mar', img:'img/kivi_mar.png', name:{ru:'Киви Маракуйя',kz:'Киви Маракуйя'}, desc:{ru:'Киви и маракуйя',kz:'Киви мен маракуйя'}, sizes:{700:1800}, temp:'cold', emoji:'🥝', color:'#c4ecb4'},
-      {id:'mango_mar', img:'img/mango_mar.png', name:{ru:'Манго Маракуйя',kz:'Манго Маракуйя'}, desc:{ru:'Манго и маракуйя',kz:'Манго мен маракуйя'}, sizes:{700:1800}, temp:'cold', emoji:'🥭', color:'#ffd28a'},
-      {id:'cherry_moj', img:'img/cherry_moj.png', name:{ru:'Cherry Мохито',kz:'Cherry Мохито'}, desc:{ru:'Вишнёвый мохито',kz:'Шие мохито'}, sizes:{700:1800}, temp:'cold', emoji:'🍒', color:'#ff7a7a'},
-      {id:'ananas_moj', img:'img/ananas_moj.png', name:{ru:'Ананас Мохито',kz:'Ананас Мохито'}, desc:{ru:'Ананасовый мохито',kz:'Ананас мохито'}, sizes:{700:1800}, temp:'cold', emoji:'🍍', color:'#ffe08a'},
-      {id:'malina_moj', img:'img/malina_moj.png', name:{ru:'Малина Мохито',kz:'Малина Мохито'}, desc:{ru:'Малиновый мохито',kz:'Таңқурай мохито'}, sizes:{700:1800}, temp:'cold', emoji:'🫐', color:'#ff9fb0'},
+      {id:'mojito', img:'img/mojito.png', name:{ru:'Mojito Classic',kz:'Mojito Classic'}, desc:{ru:'Классический освежающий мохито',kz:'Классикалық сергітетін мохито'}, sizes:{700:1500}, temp:'cold', emoji:'🍃', color:'#c4ecb4'},
+      {id:'marakuya', img:'img/marakuya.png', name:{ru:'Маракуйя',kz:'Маракуйя'}, desc:{ru:'Яркий лимонад с маракуйей',kz:'Маракуйямен жасалған лимонад'}, sizes:{700:1500}, temp:'cold', emoji:'🟡', color:'#ffe08a'},
+      {id:'granat', img:'img/granat.png', name:{ru:'Гранатовый удар',kz:'Гранатовый удар'}, desc:{ru:'Насыщенный гранатовый вкус',kz:'Анар дәмі бар қанық лимонад'}, sizes:{700:1500}, temp:'cold', emoji:'🔴', color:'#ff9fb0'},
+      {id:'kivi_mar', img:'img/kivi_mar.png', name:{ru:'Киви Маракуйя',kz:'Киви Маракуйя'}, desc:{ru:'Киви и маракуйя',kz:'Киви мен маракуйя'}, sizes:{700:1500}, temp:'cold', emoji:'🥝', color:'#c4ecb4'},
+      {id:'mango_mar', img:'img/mango_mar.png', name:{ru:'Манго Маракуйя',kz:'Манго Маракуйя'}, desc:{ru:'Манго и маракуйя',kz:'Манго мен маракуйя'}, sizes:{700:1500}, temp:'cold', emoji:'🥭', color:'#ffd28a'},
+      {id:'cherry_moj', img:'img/cherry_moj.png', name:{ru:'Cherry Мохито',kz:'Cherry Мохито'}, desc:{ru:'Вишнёвый мохито',kz:'Шие мохито'}, sizes:{700:1500}, temp:'cold', emoji:'🍒', color:'#ff7a7a'},
+      {id:'ananas_moj', img:'img/ananas_moj.png', name:{ru:'Ананас Мохито',kz:'Ананас Мохито'}, desc:{ru:'Ананасовый мохито',kz:'Ананас мохито'}, sizes:{700:1500}, temp:'cold', emoji:'🍍', color:'#ffe08a'},
+      {id:'malina_moj', img:'img/malina_moj.png', name:{ru:'Малина Мохито',kz:'Малина Мохито'}, desc:{ru:'Малиновый мохито',kz:'Таңқурай мохито'}, sizes:{700:1500}, temp:'cold', emoji:'🫐', color:'#ff9fb0'},
     ]
   },
   special: {
