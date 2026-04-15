@@ -337,7 +337,7 @@ img{max-width:100%;display:block}
   font-size:28px;width:50px;height:50px;background:var(--pink-bg);
   border-radius:12px;display:grid;place-items:center;flex-shrink:0;overflow:hidden;
 }
-.cart-item-emoji img{width:100%;height:100%;object-fit:cover}
+.cart-item-emoji img{width:100%;height:100%;object-fit:contain}
 .cart-item-info{flex:1;min-width:0}
 .cart-item-info h4{font-size:14px;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cart-item-info small{color:var(--grey);font-size:12px}
