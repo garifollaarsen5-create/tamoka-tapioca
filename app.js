@@ -133,12 +133,11 @@ function renderMenu(){
       card.style.transitionDelay = `${(catIdx * 3 + itemIdx) * 55}ms`;
 
       card.innerHTML = `
-        <div class="menu-img" style="background:linear-gradient(135deg,${item.color},#fff)">
+        <div class="menu-img${item.img ? ' has-img' : ''}" style="background:linear-gradient(135deg,${item.color},#fff)">
           <div class="temp-badges">${tempBadge}</div>
           <div class="img-emoji">${item.emoji}</div>
           ${item.img ? `<img src="${item.img}" alt="${item.name[LANG]}"
-            onload="this.classList.add('loaded');this.parentElement.classList.add('has-img')"
-            onerror="this.remove()"/>` : ''}
+            onerror="this.remove();this.parentElement.classList.remove('has-img')"/>` : ''}
         </div>
         <h3>${item.name[LANG]}</h3>
         ${sizes.length>1
