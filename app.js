@@ -136,7 +136,7 @@ function renderMenu(){
         <div class="menu-img${item.img ? ' has-img' : ''}" style="background:linear-gradient(135deg,${item.color},#fff)">
           <div class="temp-badges">${tempBadge}</div>
           <div class="img-emoji">${item.emoji}</div>
-          ${item.img ? `<img src="${item.img}" alt="${item.name[LANG]}"
+          ${item.img ? `<img src="${item.img}" alt="${item.name[LANG]}" loading="lazy" decoding="async"
             onerror="this.remove();this.parentElement.classList.remove('has-img')"/>` : ''}
         </div>
         <h3>${item.name[LANG]}</h3>
